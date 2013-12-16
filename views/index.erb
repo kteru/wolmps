@@ -1,0 +1,32 @@
+<h3>WOL Magic Packet Sender</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>MAC Address</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <form action="/mac" method="post">
+        <td><input type="text" class="form-control" id="post_addr" name="post[addr]" value="" /></td>
+        <td><input type="text" class="form-control" id="post_desc" name="post[desc]" value="" /></td>
+        <td><button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button></td>
+      </form>
+    </tr>
+    <% @macs.each do |mac| %>
+    <tr>
+      <td><a href="/wakeup/<%= mac.id %>" class="btn btn-default btn-lg" role="button"><i class="glyphicon glyphicon-off"></i> <%= mac.addr %></a></td>
+      <td><%= mac.desc %></td>
+      <td>
+        <a href="/mac/<%= mac.id %>/move?direction=up"><i class="glyphicon glyphicon-arrow-up"></i></a>
+        <a href="/mac/<%= mac.id %>/move?direction=down"><i class="glyphicon glyphicon-arrow-down"></i></a>
+        <a href="/mac/<%= mac.id %>/edit"><i class="glyphicon glyphicon-edit"></i></a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,27 @@
+<h3>WOL Magic Packet Sender</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>MAC Address</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <form action="/mac/<%= @mac.id %>" method="post">
+        <input type="hidden" name="_method" value="put" />
+        <td><input type="text" class="form-control" id="post_addr" name="post[addr]" value="<%= @mac.addr %>" /></td>
+        <td><input type="text" class="form-control" id="post_desc" name="post[desc]" value="<%= @mac.desc %>" /></td>
+        <td><button type="submit" class="btn btn-default">Update</button></td>
+      </form>
+    </tr>
+  </tbody>
+</table>
+
+<form action="/mac/<%= @mac.id %>" method="post" onsubmit="return confirm('Are You OK ?');">
+  <input type="hidden" name="_method" value="delete" />
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
